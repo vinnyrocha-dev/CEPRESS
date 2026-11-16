@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Manual da Equipe — Espaço TEA Vila Entre Rios</title>
+<link rel="stylesheet" href="estilo.css"></head><body>
+
+<section class="capa">
+  <div><img class="logo" src="img/logo.webp" alt="TEA Vila Entre Rios"></div>
+  <div>
+    <h1>Manual da Equipe</h1>
+    <p class="sub">Passo a passo do sistema de agenda do Espaço TEA Vila Entre Rios:<br>agenda, agendamentos, pacientes, fila interna, lembretes, enfermagem e evoluções.</p>
+  </div>
+  <div class="faixa">Prefeitura de Belford Roxo · Operação: CEPRESS<br>Versão do sistema: 25 · Outubro de 2026<br>As imagens deste manual usam pacientes e profissionais fictícios.</div>
+</section>
+
+<section class="sumario">
+  <h1 style="font-size:22pt">Sumário</h1>
+  <ol>
+    <li>Como entrar e sair do sistema</li>
+    <li>O que cada perfil pode fazer</li>
+    <li>Agenda do dia</li>
+    <li>Presença, confirmação, falta e cancelamento</li>
+    <li>Remarcar e passar para outro dia</li>
+    <li>Agendar um atendimento</li>
+    <li>Pacientes: buscar, cadastrar e abrir a ficha</li>
+    <li>Fila interna</li>
+    <li>Lembretes pelo WhatsApp</li>
+    <li>Enfermagem</li>
+    <li>Evoluções (profissionais)</li>
+    <li>Painel do dia</li>
+    <li>Mensagens de aviso: o que significam e o que fazer</li>
+    <li>Regras de ouro</li>
+  </ol>
+</section>
+
+<h2><span class="n">1</span>Como entrar e sair do sistema</h2>
+<p>O sistema fica dentro do site do Espaço TEA. A parte pública (apresentação da unidade) qualquer pessoa autorizada vê; a parte de trabalho fica na <b>Área da equipe</b>, que só abre com o seu código pessoal.</p>
+<figure><img src="img/site.png"><figcaption>Página inicial do site. O botão <b>Área da equipe</b> fica no canto superior direito.</figcaption></figure>
+<h3>Entrar</h3>
+<ol class="passos">
+  <li>Abra o link do sistema que a direção passou para você (guarde nos favoritos do navegador).</li>
+  <li>Se o Google pedir, entre com a sua conta Google.</li>
+  <li>Clique em <span class="bt">Área da equipe ↗</span>.</li>
+  <li>Digite o seu <b>código de acesso</b> (10 letras e números) e clique em <span class="bt">Entrar</span>. Aguarde aparecer "Verificando…" e depois a sua tela.</li>
+</ol>
+<figure class="meia"><img src="img/login.png"><figcaption>Janela do código de acesso.</figcaption></figure>
+<div class="caixa atencao"><b>O código é pessoal.</b>Tudo o que você grava fica registrado com o seu nome. Não passe o seu código para ninguém e não use o código de outra pessoa. Se esquecer ou achar que alguém viu, peça um código novo à Administradora geral.</div>
+<div class="caixa atencao"><b>Errou o código 5 vezes?</b>O computador fica bloqueado por 10 minutos. Espere e tente de novo com calma (confira letras maiúsculas e minúsculas).</div>
+<h3>Sair</h3>
+<ul>
+  <li><span class="bt">Sair da conta ↗</span> (canto superior direito): use sempre que terminar, principalmente em computador compartilhado.</li>
+  <li><span class="bt">Voltar ao site ↗</span>: volta para a página pública, mas continua logado.</li>
+  <li>Se o sistema ficar <b>30 minutos sem uso</b>, ele sai sozinho e pede o código de novo.</li>
+  <li>Fechar o navegador também apaga o acesso.</li>
+</ul>
+
+<h2><span class="n">2</span>O que cada perfil pode fazer</h2>
+<p>O menu da esquerda mostra só o que o seu perfil pode usar. Se você não vê um item, é porque ele não é da sua função.</p>
+<table>
+  <tr><th>Perfil</th><th>O que faz no sistema</th></tr>
+  <tr><td><b>Recepção</b></td><td>Agenda, agendamentos, pacientes (cadastro e edição), fila interna, painel, lembretes e consulta da enfermagem. Não vê conteúdo clínico (evoluções).</td></tr>
+  <tr><td><b>Administração</b></td><td>Tudo o que a Recepção faz, mais o cadastro de profissionais e os bloqueios (férias, licenças, feriados).</td></tr>
+  <tr><td><b>Profissional</b></td><td>Vê só a própria agenda e os próprios pacientes. Marca presença e falta, faz evoluções, compartilha evoluções. A conta de Enfermagem registra a passagem dos pacientes.</td></tr>
+  <tr><td><b>Direção / CEPRESS</b></td><td>Tudo o que a Administração faz, mais indicadores, meta, fechamento do mês e histórico de alterações. Veja o Manual da Direção.</td></tr>
+  <tr><td><b>Administradora geral</b></td><td>Tudo, inclusive criar os acessos da equipe. Veja o Manual da Direção.</td></tr>
+</table>
+<div class="caixa dica"><b>Tudo fica salvo na hora.</b>Não existe botão "salvar tudo": cada clique em Presença, Falta, Agendar etc. já grava na planilha da unidade, e todos os computadores veem a mesma informação. Enquanto o sistema grava, a tela mostra "Aguarde…" — espere terminar antes de clicar de novo.</div>
+
+<h2><span class="n">3</span>Agenda do dia</h2>
+<p>É a primeira tela depois de entrar. Cada coluna é um profissional, com a especialidade, a sala, o horário do turno e quantos atendimentos tem no dia.</p>
+<figure><img src="img/agenda.png"><figcaption>Agenda do dia: uma coluna por profissional.</figcaption></figure>
+<h3>Como navegar</h3>
+<ul>
+  <li><span class="bt">‹</span> e <span class="bt">›</span> passam para o dia anterior ou o próximo. O campo de data deixa escolher qualquer dia. <span class="bt">Hoje</span> volta para hoje.</li>
+  <li><b>Todas as especialidades</b>: escolha uma especialidade para ver só as colunas dela.</li>
+  <li><b>Buscar paciente ou profissional</b>: digite parte do nome. Se for profissional ou especialidade, a coluna inteira aparece; se for paciente, aparecem só os horários dele.</li>
+  <li>Clique no <b>nome do paciente</b> para abrir a ficha dele.</li>
+  <li>O telefone aparece embaixo do nome; o link <b>WhatsApp</b> abre a conversa (no computador abre o WhatsApp Web).</li>
+  <li><span class="bt">Ver semana</span> mostra a semana inteira de um profissional (segunda a sábado). Em cada dia, "Abrir o dia ›" volta para a agenda daquele dia.</li>
+  <li><span class="bt">Imprimir</span> imprime a agenda do dia (sem os botões).</li>
+  <li><span class="bt">+ Novo agendamento</span> abre a tela Agendar.</li>
+</ul>
+<figure><img src="img/semana.png"><figcaption>Ver semana: a semana de um profissional.</figcaption></figure>
+<h3>Situações de cada atendimento</h3>
+<table>
+  <tr><th>Situação</th><th>Significa</th></tr>
+  <tr><td><span class="st s-ag">Agendado</span></td><td>Marcado, ainda sem confirmação.</td></tr>
+  <tr><td><span class="st s-cf">Confirmado</span></td><td>A família confirmou que vem.</td></tr>
+  <tr><td><span class="st s-ok">Realizado</span></td><td>O paciente veio (presença registrada).</td></tr>
+  <tr><td><span class="st s-fa">Faltou</span></td><td>Não veio. Pode ter justificativa.</td></tr>
+  <tr><td><span class="st s-ca">Cancelado</span></td><td>Sessão cancelada. O horário fica livre.</td></tr>
+  <tr><td><span class="st s-re">Remarcado</span></td><td>Foi mudado para outro dia/horário (a sessão nova aparece no dia novo).</td></tr>
+  <tr><td>Sem atendimento</td><td>O dia está bloqueado (feriado, férias ou licença do profissional). Avise ou remarque o paciente.</td></tr>
+  <tr><td>Paciente inativo</td><td>O paciente foi inativado, mas a vaga fixa dele ainda existe. Peça para encerrar a vaga na ficha.</td></tr>
+</table>
+<p><b>Tipos de agenda:</b> terapias têm <b>horário fixo</b> (ex.: 13:00, 13:30…); médicos como psiquiatria e neuropediatria atendem por <b>ordem de chegada</b> (a coluna mostra 1º, 2º, 3º… e o limite do dia, ex.: "5/30 no dia"); serviços <b>livres</b> (como Serviço Social) não têm agenda.</p>
+
+<h2><span class="n">4</span>Presença, confirmação, falta e cancelamento</h2>
+<p>Os botões ficam embaixo de cada paciente na agenda.</p>
+<h3>Confirmar</h3>
+<ol class="passos"><li>Quando a família confirmar (por telefone ou WhatsApp), clique em <span class="bt">Confirmar</span>. A situação muda para <span class="st s-cf">Confirmado</span>.</li></ol>
+<h3>Registrar presença</h3>
+<ol class="passos"><li>Quando o paciente chegar e for atendido, clique em <span class="bt">Presença</span>. A situação muda para <span class="st s-ok">Realizado</span>.</li></ol>
+<h3>Registrar falta</h3>
+<ol class="passos">
+  <li>Clique em <span class="bt">Falta</span>. Abre um quadro embaixo do paciente.</li>
+  <li>Em <b>Falta</b>, escolha: <i>Sem justificativa</i> ou um motivo justificado (Doença, Consulta ou exame, Problema de transporte, Viagem, Outro motivo).</li>
+  <li>Se quiser, escreva uma <b>Observação</b> (ex.: "mãe avisou por WhatsApp").</li>
+  <li>Clique em <span class="bt">Registrar falta</span>.</li>
+</ol>
+<figure><img src="img/falta.png"><figcaption>Quadro da falta com justificativa.</figcaption></figure>
+<div class="caixa atencao"><b>Por que a justificativa importa?</b>Três faltas seguidas <b>sem justificativa</b> com o mesmo profissional fazem o paciente aparecer no Painel para a direção decidir (encerrar a vaga e pôr na fila, ou inativar). Falta justificada não conta para essa regra.</div>
+<h3>Cancelar</h3>
+<ol class="passos">
+  <li>Clique em <span class="bt">Cancelar</span>. O botão muda para <span class="bt">Confirmar cancelamento</span>.</li>
+  <li>Clique de novo para confirmar. (O segundo clique evita cancelar sem querer.)</li>
+</ol>
+<h3>Errou? Use Desfazer</h3>
+<p>Depois de marcar Confirmado, Realizado, Faltou ou Cancelado aparece o botão <span class="bt">Desfazer</span>, que volta para Agendado. Se o horário já foi ocupado por outra pessoa, o sistema avisa e não desfaz.</p>
+<div class="caixa proibido"><b>Quando não dá para mudar</b>
+<ul style="margin:0"><li>Atendimento que <b>já tem evolução</b> do profissional não pode ser cancelado, desfeito nem remarcado.</li>
+<li>Meses <b>fechados</b> pela direção não aceitam mais mudanças (aparece "O mês … está fechado").</li></ul></div>
+
+<h2><span class="n">5</span>Remarcar e passar para outro dia</h2>
+<h3>Atendimento com horário (terapias)</h3>
+<ol class="passos">
+  <li>Clique em <span class="bt">Remarcar ▾</span> embaixo do paciente.</li>
+  <li>Se quiser, escreva o <b>Motivo</b>.</li>
+  <li>Escolha a <b>Nova data</b> e o <b>Horário</b>.</li>
+  <li>Clique no botão azul <span class="bt">Remarcar</span> do quadro. O horário antigo fica <span class="st s-re">Remarcado</span> e a sessão nova aparece como <i>avulsa</i> no dia novo.</li>
+</ol>
+<h3>Ordem de chegada (médicos)</h3>
+<ol class="passos">
+  <li>Clique em <span class="bt">Passar ▾</span>.</li>
+  <li>Escolha o dia em <b>Passar para o dia</b> e clique no botão azul <span class="bt">Passar</span>. O paciente entra no fim da lista daquele dia.</li>
+  <li>Se o dia escolhido estiver lotado, o sistema oferece <span class="bt">Colocar na fila interna</span>.</li>
+</ol>
+<div class="caixa dica"><b>Só muda uma sessão</b>Remarcar muda apenas aquela data. A vaga fixa (toda semana / quinzena) continua igual nas outras datas. Para acabar com a vaga fixa, use <b>Encerrar</b> na ficha do paciente (capítulo 7).</div>
+<p>Clicar de novo em <span class="bt">Remarcar ▾</span> fecha o quadro sem mudar nada.</p>
+
+<h2><span class="n">6</span>Agendar um atendimento</h2>
+<figure><img src="img/agendar.png"><figcaption>Tela Agendar: paciente, especialidade, profissional, tipo e horários livres.</figcaption></figure>
+<ol class="passos">
+  <li>No menu, clique em <span class="menu">Agendar</span> (ou em <span class="bt">+ Novo agendamento</span> na Agenda).</li>
+  <li>Em <b>Paciente</b>, comece a digitar o nome (ou o número do prontuário) e escolha na lista. Aparece a situação do paciente e, se ele estiver na fila interna, um aviso amarelo com o botão <span class="bt">Usar</span>.</li>
+  <li>Escolha a <b>Especialidade</b>. Se houver só um profissional, ele já vem escolhido; se houver mais, escolha o <b>Profissional</b>. A tela mostra os dias e horários em que ele atende.</li>
+  <li>Escolha o <b>Tipo</b>:
+    <ul><li><b>Consulta avulsa</b> — uma vez só;</li>
+    <li><b>Vaga fixa semanal</b> — toda semana, mesmo dia e horário;</li>
+    <li><b>Vaga fixa quinzenal</b> — a cada 2 semanas (14 dias, sempre no mesmo dia da semana);</li>
+    <li><b>Vaga fixa a cada 4 semanas</b>.</li></ul></li>
+  <li>Escolha a <b>Primeira sessão</b> (data). Para vaga fixa, se já souber, preencha <b>Até (opcional)</b>; sem data final ela continua até ser encerrada.</li>
+  <li>Clique em <span class="bt">Ver horários</span>. Horários livres aparecem como botões; os ocupados aparecem riscados.</li>
+  <li>Clique no horário desejado e depois em <span class="bt">Confirmar agendamento</span>. Aparece a confirmação em verde.</li>
+</ol>
+<h3>Ordem de chegada (psiquiatria, neuropediatria…)</h3>
+<ol class="passos">
+  <li>Escolha paciente, especialidade e a data.</li>
+  <li>Clique em <span class="bt">Colocar na lista</span>. O paciente entra no fim da lista do dia.</li>
+  <li>Se o dia estiver lotado, aparece <span class="bt">Colocar na fila interna de …</span>.</li>
+</ol>
+<h3>O sistema não deixa agendar quando…</h3>
+<ul>
+  <li>o horário já é de outro paciente (inclusive vagas fixas nas semanas seguintes);</li>
+  <li>o horário está fora do expediente do profissional ou no intervalo (almoço);</li>
+  <li>o dia está bloqueado (feriado, férias, licença);</li>
+  <li>o paciente já tem atendimento com o mesmo profissional naquele dia;</li>
+  <li>o profissional já atingiu o máximo de atendimentos do dia;</li>
+  <li>o paciente está inativo ou o mês está fechado.</li>
+</ul>
+<p>A mensagem explica o motivo. Escolha outro horário ou outro dia.</p>
+
+<h2><span class="n">7</span>Pacientes: buscar, cadastrar e abrir a ficha</h2>
+<figure><img src="img/pacientes.png"><figcaption>Lista de pacientes, inclusive os inativos.</figcaption></figure>
+<h3>Buscar</h3>
+<p>No campo de busca, digite <b>nome, prontuário, CPF, CNS (cartão do SUS) ou telefone</b>. A lista filtra enquanto você digita. Clique na linha para abrir a ficha.</p>
+<h3>Cadastrar paciente novo</h3>
+<ol class="passos">
+  <li>Clique em <span class="bt">+ Novo paciente</span>.</li>
+  <li>Preencha <b>Prontuário</b> e <b>Nome</b> (obrigatórios), responsável e telefone com DDD.</li>
+  <li>Preencha documentos (CPF, CNS), data de nascimento (a idade aparece sozinha), endereço.</li>
+  <li>Em <b>Perfil e suporte</b>, marque um ou mais perfis (TEA, DI, TOD, TDAH, TDI, AVALIAÇÃO, OUTROS) e o nível de suporte. Use os campos "Outros (especifique)" quando precisar.</li>
+  <li>Clique em <span class="bt">Salvar</span>.</li>
+</ol>
+<figure><img src="img/paciente-novo.png"><figcaption>Cadastro de paciente.</figcaption></figure>
+<div class="caixa atencao"><b>O sistema confere</b>CPF e CNS precisam ser válidos, e não aceita prontuário nem CPF repetido. O perfil e o nível de suporte registram a informação recebida — o sistema não faz diagnóstico.</div>
+<h3>A ficha do paciente</h3>
+<p>A ficha mostra: dados cadastrais, totais (realizados, faltas, agendados sem registro), terapias e profissionais, vagas fixas, fila interna e o histórico de atendimentos. Profissionais também veem as evoluções que podem ler.</p>
+<figure><img src="img/ficha.png"><figcaption>Ficha do paciente.</figcaption></figure>
+<h3>Editar ou inativar</h3>
+<ol class="passos">
+  <li>Na ficha, clique em <span class="bt">Editar dados</span>.</li>
+  <li>Corrija o que precisar. Para inativar (alta, desistência, mudança…), em <b>Status</b> escolha <i>Inativo</i> e escreva o <b>Motivo</b>.</li>
+  <li>Clique em <span class="bt">Salvar</span>.</li>
+</ol>
+<h3>Encerrar uma vaga fixa</h3>
+<ol class="passos">
+  <li>Na ficha, em <b>Vagas fixas</b>, clique em <span class="bt">Encerrar</span> na vaga.</li>
+  <li>Escolha o <b>Último dia</b> e clique em <span class="bt">Encerrar</span>. A partir do dia seguinte o horário fica livre para outro paciente.</li>
+</ol>
+
+<h2><span class="n">8</span>Fila interna</h2>
+<p>A fila interna é para pacientes <b>que já são da unidade</b> e esperam vaga em outra terapia. (A fila externa do Complexo Regulador não passa por este sistema.)</p>
+<figure><img src="img/fila.png"><figcaption>Fila interna separada por especialidade, com prioridade.</figcaption></figure>
+<h3>Colocar na fila</h3>
+<ol class="passos">
+  <li>No menu, clique em <span class="menu">Fila interna</span>.</li>
+  <li>Em <b>Adicionar à fila</b>, escolha o <b>Paciente</b> na lista e digite a <b>Especialidade necessária</b>.</li>
+  <li>Escolha a <b>Prioridade</b> (Normal ou Alta) e, se quiser, uma observação.</li>
+  <li>Clique em <span class="bt">Adicionar</span>.</li>
+</ol>
+<h3>Quando surgir a vaga</h3>
+<ol class="passos">
+  <li>Na especialidade, quem tem prioridade Alta aparece primeiro; depois, por ordem de chegada.</li>
+  <li>Clique em <span class="bt">Agendar</span> na linha do paciente. A tela Agendar abre já com o paciente e a especialidade.</li>
+  <li>Ao confirmar o agendamento, o paciente sai da fila.</li>
+</ol>
+<p>Para retirar alguém sem agendar, clique em <span class="bt">Tirar da fila</span> e confirme.</p>
+
+<h2><span class="n">9</span>Lembretes pelo WhatsApp</h2>
+<p>A tela <span class="menu">Lembretes</span> lista os atendimentos de um dia (já vem com <b>amanhã</b>) com a mensagem de lembrete pronta para cada família.</p>
+<figure><img src="img/lembretes.png"><figcaption>Lembretes do dia: um botão por paciente.</figcaption></figure>
+<ol class="passos">
+  <li>Abra <span class="menu">Lembretes</span> (mude a data se quiser outro dia).</li>
+  <li>Clique em <span class="bt">Enviar lembrete</span>. O WhatsApp abre com a mensagem escrita: nome do paciente, especialidade, profissional, dia e horário.</li>
+  <li>Confira e <b>envie no WhatsApp</b>. O botão no sistema muda para "Lembrete aberto ✓" para você saber onde parou.</li>
+  <li>Quando a família responder confirmando, clique em <span class="bt">Confirmou</span>. A sessão fica <span class="st s-cf">Confirmado</span> também na agenda.</li>
+</ol>
+<div class="caixa dica"><b>O sistema não envia sozinho</b>Quem envia é você, pelo WhatsApp da unidade. Pacientes sem celular cadastrado aparecem como "Sem celular cadastrado" — atualize o telefone na ficha.</div>
+
+<h2><span class="n">10</span>Enfermagem</h2>
+<p>Todos os pacientes agendados no dia devem passar pela enfermagem. A enfermagem não tem horário fixo e <b>não tem falta</b>: só se registra quem passou.</p>
+<figure><img src="img/enfermagem.png"><figcaption>Tela da Enfermagem: cada paciente uma vez, com as terapias do dia.</figcaption></figure>
+<h3>Para a enfermagem (conta ligada a um profissional de Enfermagem)</h3>
+<ol class="passos">
+  <li>Abra <span class="menu">Enfermagem</span>. Aparecem todos os pacientes agendados no dia, cada um <b>uma vez</b>, com as terapias e horários daquele dia.</li>
+  <li>Quando o paciente passar, clique em <span class="bt">Passou</span>. Fica "Passou pela enfermagem", com a hora e quem registrou.</li>
+  <li>Para atender alguém que <b>não estava na agenda</b>, use <b>Atendimento livre</b>: digite o nome, escolha e clique em <span class="bt">Registrar passagem</span>.</li>
+  <li>Depois da passagem, clique em <span class="bt">Evoluir</span> para fazer a evolução de enfermagem (capítulo 11).</li>
+  <li>Marcou errado? Use <span class="bt">Desfazer</span> e confirme (só enquanto não houver evolução).</li>
+</ol>
+<div class="caixa dica"><b>Para recepção e direção</b>A tela também abre para vocês, mas só para consulta: dá para ver quem já passou e quem está "Sem passagem registrada". A passagem pela enfermagem não marca presença nas outras terapias.</div>
+
+<h2><span class="n">11</span>Evoluções (profissionais)</h2>
+<p>A evolução é o registro clínico do atendimento. Só faz evolução quem tem a conta <b>ligada ao profissional</b> que atendeu, e só depois de registrada a <b>presença</b>. Não dá para evoluir atendimento futuro.</p>
+<h3>Fazer uma evolução</h3>
+<ol class="passos">
+  <li>Marque a <span class="bt">Presença</span> do paciente na Agenda.</li>
+  <li>Clique em <span class="bt">Evoluir</span> no paciente (na Agenda) — ou abra <span class="menu">Evoluções</span>, onde ficam os <b>Atendimentos para evoluir</b> dos últimos 60 dias, e clique em <span class="bt">Evoluir</span>.</li>
+  <li>Preencha o formulário da sua especialidade:
+    <ul><li><b>Objetivo da sessão</b> e <b>Duração</b> (minutos);</li>
+    <li><b>Chegada do paciente</b> — marque com X e use "Outros" se precisar;</li>
+    <li><b>Condutas realizadas</b> — itens próprios da sua especialidade;</li>
+    <li><b>Resposta do paciente</b> e <b>Saída do paciente</b>;</li>
+    <li><b>Observações e plano para a próxima sessão</b>.</li></ul></li>
+  <li>Clique em <span class="bt">Salvar evolução</span>.</li>
+</ol>
+<figure><img src="img/evolucao.png"><figcaption>Formulário de evolução (exemplo: Fonoaudiologia).</figcaption></figure>
+<div class="caixa atencao"><b>Depois de salva, a evolução não muda</b>Para corrigir ou acrescentar algo, abra a ficha do paciente, vá em Evoluções e clique em <span class="bt">Adicionar complemento</span>. O complemento fica embaixo da original, com data e autor. O atendimento evoluído também não pode mais ser cancelado nem remarcado.</div>
+<h3>Ver as evoluções e o gráfico</h3>
+<p>Na ficha do paciente, o quadro <b>Evoluções</b> mostra as suas evoluções e as que foram compartilhadas com você. Em cima, o <b>gráfico</b> mostra, mês a mês, em quantas % das evoluções um item foi marcado. Escolha o <b>Item</b> e o <b>Autor</b>.</p>
+<figure><img src="img/evolucoes.png"><figcaption>Evoluções na ficha, com o gráfico mensal.</figcaption></figure>
+<p class="pequeno">O gráfico mostra frequência de marcação, não melhora clínica: item sem X quer dizer "não registrado". Complementos não entram na conta.</p>
+<h3>Compartilhar uma evolução</h3>
+<p>As evoluções são sigilosas: outro profissional só lê se você autorizar.</p>
+<ol class="passos">
+  <li>Na sua evolução, clique em <span class="bt">Compartilhar</span>.</li>
+  <li>Em <b>Liberar leitura para</b>, escolha a pessoa.</li>
+  <li>Em <b>O quê</b>, escolha: <i>Só esta evolução</i>, <i>Todas as minhas deste paciente</i> ou <i>Todas as minhas evoluções</i>.</li>
+  <li>Clique em <span class="bt">Autorizar</span>.</li>
+</ol>
+<p>Quem recebe só <b>lê</b> — não edita, não complementa e não ganha acesso à ficha do paciente. Para cancelar, abra <span class="menu">Evoluções</span>, em <b>Leituras que autorizei</b> clique em <span class="bt">Revogar</span> e confirme.</p>
+<p>As evoluções que outras pessoas compartilharam com você ficam em <span class="menu">Evoluções</span> → <b>Evoluções compartilhadas comigo</b>: clique no nome do paciente para ler.</p>
+<div class="caixa dica"><b>Quem mais vê?</b>A Administradora geral pode consultar todas as evoluções; cada consulta fica registrada no histórico. Recepção e Administração não veem evoluções.</div>
+
+<h2><span class="n">12</span>Painel do dia</h2>
+<p>O <span class="menu">Painel</span> resume a unidade: pacientes ativos e capacidade, atendimentos, realizados e faltas de hoje, faltas, cancelamentos e remarcações do mês, a ordem de chegada de hoje, resumo por especialidade e os pacientes que mais faltaram nos últimos 60 dias.</p>
+<figure><img src="img/painel.png"><figcaption>Painel da unidade.</figcaption></figure>
+<p>Quando um paciente tem <b>3 faltas seguidas sem justificativa</b>, ele aparece no quadro do mesmo nome, com duas opções: <span class="bt">Encerrar vaga e pôr na fila</span> ou <span class="bt">Inativar paciente</span> (cada uma pede confirmação). Essa decisão normalmente é da direção.</p>
+
+<h2><span class="n">13</span>Mensagens de aviso: o que significam e o que fazer</h2>
+<table>
+  <tr><th>Mensagem</th><th>O que fazer</th></tr>
+  <tr><td>Código de acesso inválido</td><td>Confira o código (maiúsculas/minúsculas). Se não lembrar, peça um novo à Administradora geral.</td></tr>
+  <tr><td>Muitas tentativas erradas neste aparelho</td><td>Espere 10 minutos e tente de novo.</td></tr>
+  <tr><td>Este acesso foi desativado</td><td>Fale com a Administradora geral.</td></tr>
+  <tr><td>Você saiu automaticamente depois de 30 minutos sem uso</td><td>Normal. Digite o código de novo.</td></tr>
+  <tr><td>O horário já foi ocupado / já atende …</td><td>Outra pessoa pegou o horário. Escolha outro.</td></tr>
+  <tr><td>Fora do horário do profissional</td><td>O profissional não atende nesse dia/horário (ou é intervalo). Veja os horários na tela Agendar.</td></tr>
+  <tr><td>Sem atendimento neste dia: …</td><td>Feriado, férias ou licença. Escolha outro dia.</td></tr>
+  <tr><td>LOTADO</td><td>A lista do dia (ordem de chegada) está cheia. Use outro dia ou a fila interna.</td></tr>
+  <tr><td>O mês … está fechado</td><td>A direção fechou o mês. Só a Administradora geral reabre.</td></tr>
+  <tr><td>Já tem evolução registrada</td><td>Atendimento evoluído não muda. Fale com o profissional.</td></tr>
+  <tr><td>Registre a presença do paciente antes de fazer a evolução</td><td>Marque Presença na Agenda e depois evolua.</td></tr>
+  <tr><td>Seu acesso é só à sua própria agenda</td><td>Perfil Profissional só mexe nos próprios atendimentos.</td></tr>
+  <tr><td>CPF inválido / CNS inválido / Já existe o prontuário</td><td>Confira os números digitados.</td></tr>
+</table>
+<p>Se aparecer qualquer outro erro, anote a mensagem (ou tire uma foto da tela) e avise a direção.</p>
+
+<h2><span class="n">14</span>Regras de ouro</h2>
+<ol class="passos">
+  <li>Use sempre o <b>seu</b> código e saia da conta ao terminar.</li>
+  <li>Registre presença e falta <b>no mesmo dia</b> — os indicadores e a regra das 3 faltas dependem disso.</li>
+  <li>Sempre que souber o motivo da falta, escolha a <b>justificativa</b>.</li>
+  <li>Não mexa direto na planilha: use as telas do sistema. A planilha é responsabilidade da direção.</li>
+  <li>Espere o "Aguarde…" terminar antes de clicar de novo.</li>
+  <li>Evoluções são dados de saúde: não copie, não imprima e não envie por WhatsApp sem necessidade.</li>
+  <li>Na dúvida, pergunte antes de cancelar ou inativar.</li>
+</ol>
+</body></html>

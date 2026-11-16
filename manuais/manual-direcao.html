@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Manual da Direção — Espaço TEA Vila Entre Rios</title>
+<link rel="stylesheet" href="estilo.css">
+<style>.url { font: 9pt/1.4 "Liberation Mono", monospace; word-break: break-all; background: #eef2f7; padding: 1.5mm 2mm; border-radius: 3px; display: block; margin: 1mm 0 3mm; }
+.esquema { display: flex; gap: 4mm; align-items: stretch; margin: 4mm 0; }
+.esquema div { flex: 1; border: 1.5px solid var(--azul); border-radius: 5px; padding: 3mm; font-size: 9.5pt; }
+.esquema div b { display: block; color: var(--azul); font-size: 11pt; margin-bottom: 1mm; }
+.esquema .seta { flex: 0 0 8mm; border: 0; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 18pt; color: var(--azul); }</style></head><body>
+
+<section class="capa">
+  <div><img class="logo" src="img/logo.webp" alt="TEA Vila Entre Rios"></div>
+  <div>
+    <h1>Manual da Direção</h1>
+    <p class="sub">Como administrar o sistema do Espaço TEA Vila Entre Rios:<br>site, área da equipe, acessos, profissionais, indicadores, planilha, publicação de versões e cópias de segurança.</p>
+  </div>
+  <div class="faixa">Prefeitura de Belford Roxo · Operação: CEPRESS<br>Versão do sistema: 25 · Outubro de 2026<br>Uso interno da Direção, CEPRESS e Administradora geral. Este manual contém os endereços administrativos do sistema: não divulgue.</div>
+</section>
+
+<section class="sumario">
+  <h1 style="font-size:22pt">Sumário</h1>
+  <ol>
+    <li>Como o sistema funciona</li>
+    <li>Endereços importantes</li>
+    <li>Perfis e permissões</li>
+    <li>Equipe e acessos (criar, mudar e desativar)</li>
+    <li>Profissionais, expediente e salas</li>
+    <li>Feriados, férias e licenças (Bloqueios)</li>
+    <li>Indicadores, meta e fechamento do mês</li>
+    <li>Painel e a regra das 3 faltas</li>
+    <li>Histórico de alterações</li>
+    <li>Evoluções e sigilo</li>
+    <li>A planilha: o que tem em cada aba</li>
+    <li>O que pode e o que não pode mexer na planilha</li>
+    <li>Menu CEPRESS da planilha e sincronização de prontuários</li>
+    <li>Rotinas automáticas</li>
+    <li>Cópia de segurança e como recuperar dados</li>
+    <li>O código do sistema e como publicar uma versão nova</li>
+    <li>Segurança e proteção de dados</li>
+    <li>Problemas comuns e soluções</li>
+    <li>Pendências e limites conhecidos</li>
+    <li>Rotina recomendada da direção</li>
+  </ol>
+  <p class="pequeno">O passo a passo das telas do dia a dia (agenda, agendar, presença, falta, fila, lembretes, enfermagem, evoluções) está no <b>Manual da Equipe</b>. Este manual trata do que é exclusivo da gestão.</p>
+</section>
+
+<h2><span class="n">1</span>Como o sistema funciona</h2>
+<p>O sistema tem três partes, todas dentro da conta Google da unidade (viniciusgp45@gmail.com):</p>
+<div class="esquema">
+  <div><b>Site + Área da equipe</b>O que as pessoas abrem no navegador. A página pública apresenta a unidade; a Área da equipe é o sistema de trabalho, aberto com código pessoal.</div>
+  <div class="seta">⇄</div>
+  <div><b>Código (Apps Script)</b>O "motor": confere o código de cada pessoa, aplica as regras (conflitos, permissões, sigilo) e grava na planilha.</div>
+  <div class="seta">⇄</div>
+  <div><b>Planilha "CEPRESS - Agenda"</b>O banco de dados. Cada aba guarda uma parte: pacientes, profissionais, agendamentos, evoluções etc.</div>
+</div>
+<ul>
+  <li>Tudo o que a equipe faz no site é gravado na hora na planilha. Todos os computadores veem a mesma informação.</li>
+  <li>As permissões são verificadas no servidor (no código), não só escondendo botões. Mesmo que alguém tente "forçar" uma ação, o servidor recusa.</li>
+  <li>Cada pessoa entra com o <b>próprio código</b>. Por isso cada gravação fica registrada com o nome de quem fez.</li>
+  <li>Duas pessoas clicando no mesmo horário ao mesmo tempo não conseguem agendar em dobro: o sistema grava um pedido de cada vez.</li>
+</ul>
+
+<h2><span class="n">2</span>Endereços importantes</h2>
+<p><b>Link do sistema (para a equipe usar)</b> — este é o endereço oficial, que não muda ao publicar versões novas:</p>
+<span class="url">https://script.google.com/macros/s/AKfycbz7C-nVPL8aT48Ums3vhVNy6-V-ADLsaNVtPUgjgtMYnIrgO8m1Ec8a8S6Qn8LTgr1I/exec</span>
+<p><b>Link de teste (só para quem administra)</b> — mostra a versão salva no editor antes de publicar:</p>
+<span class="url">https://script.google.com/macros/s/AKfycbyDoA5J0EzpzylcQBeMgGz3XeRTQ-aS3Bb1SZfwNvE9/dev</span>
+<p><b>Planilha</b> (banco de dados):</p>
+<span class="url">https://docs.google.com/spreadsheets/d/1zAp2h4jmbEpxAlLh9xE5GAeODKcnUTXrI00TkGtWWoo/edit</span>
+<p><b>Editor do código</b> (Apps Script) — também abre pela planilha em <i>Extensões → Apps Script</i>:</p>
+<span class="url">https://script.google.com/home/projects/1hIG8ghwIgw9HDXr2JvIHrzlRhOcCC_IYXjIGae-ZcpHqZXwfmJiAI2Yg/edit</span>
+<div class="caixa atencao"><b>Faixa cinza do Google</b>No alto do site aparece "Este aplicativo foi criado por um usuário do Google Apps Script". É padrão do Google para sistemas hospedados assim e não indica problema. Hoje cada pessoa precisa estar logada numa conta Google para abrir o link (veja o capítulo 19).</div>
+
+<h2><span class="n">3</span>Perfis e permissões</h2>
+<table>
+  <tr><th>Perfil</th><th>Pode</th><th>Não pode</th></tr>
+  <tr><td><b>Administradora geral</b></td><td>Tudo: equipe e acessos, cadastros, agenda, indicadores, fechamento e <b>reabertura</b> de mês, histórico. Consulta <b>todas</b> as evoluções (cada consulta fica registrada).</td><td>Editar evolução de outra pessoa.</td></tr>
+  <tr><td><b>Direção</b> e <b>CEPRESS</b></td><td>Agenda, cadastros de pacientes e profissionais, bloqueios, fila, painel, indicadores, meta, fechamento do mês, histórico de alterações. Evoluções: só as próprias ou as compartilhadas com ela.</td><td>Criar acessos; reabrir mês fechado; ler evoluções não compartilhadas.</td></tr>
+  <tr><td><b>Administração</b></td><td>Agenda, agendamentos, pacientes, fila, painel, lembretes, cadastro de profissionais e bloqueios.</td><td>Indicadores, histórico, evoluções.</td></tr>
+  <tr><td><b>Recepção</b></td><td>Agenda, agendamentos, pacientes, fila, painel, lembretes, consulta da enfermagem.</td><td>Cadastro de profissionais, bloqueios, indicadores, evoluções.</td></tr>
+  <tr><td><b>Profissional</b></td><td>Só a própria agenda e os pacientes que atende; presença/falta dos próprios atendimentos; evoluções próprias e compartilhar. Conta ligada a Enfermagem registra a passagem dos pacientes.</td><td>Ver agenda e pacientes de outros; cadastros; indicadores.</td></tr>
+</table>
+<div class="caixa dica"><b>Quem precisa de "Profissional vinculado"?</b>Todo profissional que vai fazer evolução precisa ter o acesso ligado ao seu cadastro de profissional. Sem isso, o sistema não sabe de quem é a agenda nem quem é o autor da evolução.</div>
+
+<h2><span class="n">4</span>Equipe e acessos</h2>
+<p>Só a <b>Administradora geral</b> vê o menu <span class="menu">Equipe</span>.</p>
+<figure><img src="img/equipe.png"><figcaption>Lista de acessos da equipe.</figcaption></figure>
+<h3>Criar um acesso</h3>
+<ol class="passos">
+  <li>Abra <span class="menu">Equipe</span> e clique em <span class="bt">+ Novo acesso</span>.</li>
+  <li>Preencha o <b>Nome completo</b> (não pode repetir), o <b>Perfil de acesso</b>, a <b>Função</b>, telefone e e-mail.</li>
+  <li>Se for profissional que atende, escolha o <b>Profissional vinculado</b>. Para o perfil Profissional isso é obrigatório.</li>
+  <li>Clique em <span class="bt">Salvar</span>.</li>
+  <li>Aparece uma caixa amarela com o <b>código de acesso</b>. Anote e entregue <b>só para essa pessoa</b>. Por segurança, o código não aparece de novo.</li>
+</ol>
+<figure><img src="img/equipe-novo.png"><figcaption>Formulário de novo acesso.</figcaption></figure>
+<div class="caixa dica"><b>Atalho a partir do profissional</b>Em <span class="menu">Profissionais</span> → <span class="bt">Editar</span> → <span class="bt">Configurar acesso</span>, a tela Equipe abre já com o profissional escolhido (ou com o acesso que já existe para ele).</div>
+<h3>Esqueceu o código / código vazou</h3>
+<ol class="passos">
+  <li>Em <span class="menu">Equipe</span>, clique em <span class="bt">Editar</span> na pessoa.</li>
+  <li>Marque <b>Gerar código novo (o atual deixa de valer)</b> e clique em <span class="bt">Salvar</span>.</li>
+  <li>Entregue o novo código. O antigo para de funcionar na hora.</li>
+</ol>
+<h3>Desligamento, férias longas, afastamento</h3>
+<p>Clique em <span class="bt">Editar</span>, desmarque <b>Ativo</b> e salve. A pessoa não entra mais, mas tudo o que ela registrou continua no sistema com o nome dela. Para voltar, marque Ativo de novo.</p>
+<div class="caixa atencao"><b>Regras que o sistema impõe</b>
+<ul style="margin:0"><li>Sempre existe pelo menos uma Administradora geral ativa (o sistema não deixa tirar a última).</li>
+<li>Um profissional só pode estar ligado a um acesso ativo.</li>
+<li>Nunca apague linhas da aba Usuários: prefira desativar. Assim o histórico mantém os nomes.</li></ul></div>
+
+<h2><span class="n">5</span>Profissionais, expediente e salas</h2>
+<figure><img src="img/profissionais.png"><figcaption>Lista de profissionais com dias, horários e salas.</figcaption></figure>
+<h3>Cadastrar ou editar</h3>
+<ol class="passos">
+  <li>Abra <span class="menu">Profissionais</span> e clique em <span class="bt">+ Novo profissional</span> (ou <span class="bt">Editar</span>).</li>
+  <li>Preencha <b>Nome</b> e <b>Especialidade</b>. Se a especialidade não existir, escolha <b>+ Nova especialidade…</b> e digite o nome.</li>
+  <li>Escolha o <b>Tipo de agenda</b>:
+    <ul><li><b>Horário fixo (terapias)</b> — informe a <b>Duração</b> da sessão (ex.: 30 min) e, se quiser, o máximo de atendimentos por dia;</li>
+    <li><b>Ordem de chegada (médicos)</b> — informe o <b>Máx. por dia</b>;</li>
+    <li><b>Livre (sem agenda)</b> — para serviços sem horário (ex.: Serviço Social, Enfermagem).</li></ul></li>
+  <li>Preencha contato e registro profissional (e-mail, telefone, CPF, nascimento, conselho, nº do registro, endereço).</li>
+  <li>Em <b>Dias e horários</b>, clique em <span class="bt">+ Adicionar dia</span> para cada turno: dia, início, fim, intervalo (almoço) de/até e sala. Um dia pode ter dois turnos (ex.: manhã e tarde).</li>
+  <li>Clique em <span class="bt">Salvar</span>.</li>
+</ol>
+<figure><img src="img/profissional.png"><figcaption>Cadastro do profissional com expediente, intervalo e sala.</figcaption></figure>
+<h3>Como o expediente vira horários</h3>
+<p>Com sessão de 30 minutos, das 8h às 17h e almoço das 12h às 13h, a agenda oferece 8:00 até 11:30 e 13:00 até 16:30 (16 horários). Com almoço das 13h às 14h: 8:00 até 12:30 e 14:00 até 16:30. O intervalo bloqueia o horário inteiro.</p>
+<div class="caixa atencao"><b>O sistema confere</b>
+<ul style="margin:0"><li>Dois turnos do mesmo profissional não podem se sobrepor.</li>
+<li><b>Conflito de sala:</b> dois profissionais ativos não podem usar a mesma sala no mesmo dia em horários que se cruzam.</li>
+<li>Se você mudar o horário e alguma vaga fixa ficar fora do novo expediente, aparece um aviso com a lista dessas vagas para remarcar ou encerrar.</li></ul></div>
+<h3>Tirar um profissional da agenda</h3>
+<p>Edite e desmarque <b>Ativo</b>. O histórico e as evoluções dele continuam. Antes, encerre ou transfira as vagas fixas dos pacientes dele (ficha do paciente → Encerrar). Lembre de desativar também o acesso dele em <span class="menu">Equipe</span>.</p>
+
+<h2><span class="n">6</span>Feriados, férias e licenças (Bloqueios)</h2>
+<figure><img src="img/bloqueios.png"><figcaption>Tela Bloqueios.</figcaption></figure>
+<ol class="passos">
+  <li>Abra <span class="menu">Bloqueios</span>.</li>
+  <li>Escolha <b>De</b> e, se for mais de um dia, <b>Até</b>.</li>
+  <li>Em <b>Quem</b>: <i>Clínica toda</i> (feriado, ponto facultativo, dedetização…) ou um profissional (férias, licença, curso).</li>
+  <li>Escreva o <b>Motivo</b> e clique em <span class="bt">Bloquear</span>.</li>
+</ol>
+<p>Nos dias bloqueados ninguém agenda. As sessões que já estavam marcadas aparecem na agenda como <b>Sem atendimento</b> — a recepção deve avisar ou remarcar esses pacientes. Para desfazer, clique em <span class="bt">Tirar</span> e confirme.</p>
+<div class="caixa dica"><b>Feriados já cadastrados</b>Os feriados nacionais e os de Belford Roxo (Emancipação 3/4, São Jorge 23/4, Nossa Senhora da Conceição 8/12) estão cadastrados até 2028. Todo ano, confira o calendário da Prefeitura (pontos facultativos, Carnaval, Corpus Christi) e acrescente o que faltar.</div>
+
+<h2><span class="n">7</span>Indicadores, meta e fechamento do mês</h2>
+<p>O menu <span class="menu">Indicadores</span> (Visão da unidade) é da Direção, CEPRESS e Administradora geral.</p>
+<figure><img src="img/indicadores.png"><figcaption>Visão da unidade.</figcaption></figure>
+<h3>O que aparece</h3>
+<ul>
+  <li>Agendamentos registrados, atendimentos realizados, faltas, cancelados, agendados sem registro, pacientes distintos atendidos e % de faltas (entre presenças e faltas).</li>
+  <li>Meta mensal da unidade, % atingido e quantos faltam.</li>
+  <li>Acumulado de todos os meses, histórico mês a mês, resultados por profissional e por especialidade.</li>
+  <li>Fila interna: quantas pessoas aguardam em cada especialidade.</li>
+</ul>
+<p>Filtros: <b>Período</b> (meses com registro), <b>Escolher outro mês</b>, <b>Profissional</b> e <b>Especialidade</b>.</p>
+<h3>Como os números são contados</h3>
+<ul>
+  <li><b>Realizados</b> = presença registrada. <b>Agendados sem registro</b> = sessões que ninguém marcou (nem presença, nem falta, nem cancelamento) — se esse número estiver alto em meses passados, a equipe esqueceu de registrar.</li>
+  <li>Sessão <b>remarcada</b> conta uma vez só, no dia novo. Sessões em <b>feriado/bloqueio</b> não contam.</li>
+  <li>Os números são calculados a partir dos registros; o sistema não inventa dados de meses sem registro.</li>
+</ul>
+<h3>Definir a meta do mês</h3>
+<ol class="passos"><li>Escolha o mês, digite em <b>Meta de atendimentos para este mês</b> e clique em <span class="bt">Salvar meta do mês</span>. Cada mês guarda a sua meta.</li></ol>
+<h3>Fechar o mês</h3>
+<p>Depois de conferir que presenças e faltas do mês estão todas registradas:</p>
+<ol class="passos">
+  <li>Escolha o mês (só aparece depois que o mês terminou).</li>
+  <li>Clique em <span class="bt">Fechar …</span> e depois em <span class="bt">Confirmar fechamento</span>.</li>
+</ol>
+<p>A partir daí ninguém muda presença, falta, agendamento ou remarcação daquele mês, e os números ficam definitivos. Só a <b>Administradora geral</b> pode <span class="bt">Reabrir o mês</span>.</p>
+
+<h2><span class="n">8</span>Painel e a regra das 3 faltas</h2>
+<figure><img src="img/painel.png"><figcaption>Painel da unidade.</figcaption></figure>
+<p>O <span class="menu">Painel</span> mostra o dia e o mês: pacientes ativos e capacidade, atendimentos e faltas de hoje, faltas, cancelamentos e remarcações do mês, resumo por especialidade (profissionais, vagas fixas ativas, fila) e os pacientes que mais faltaram nos últimos 60 dias.</p>
+<h3>3 faltas seguidas sem justificativa</h3>
+<p>Quando um paciente falta 3 vezes seguidas com o mesmo profissional <b>sem justificativa</b>, ele aparece no quadro "3 faltas seguidas sem justificativa", com as datas. A direção decide:</p>
+<ul>
+  <li><span class="bt">Encerrar vaga e pôr na fila</span> — encerra a vaga fixa e coloca o paciente na fila interna daquela especialidade (com observação "3 faltas").</li>
+  <li><span class="bt">Inativar paciente</span> — inativa o paciente.</li>
+</ul>
+<p>As duas pedem um segundo clique para confirmar e ficam no histórico. Falta com justificativa quebra a sequência. Se nenhuma ação for tomada, o horário continua reservado.</p>
+
+<h2><span class="n">9</span>Histórico de alterações</h2>
+<figure><img src="img/alteracoes.png"><figcaption>Histórico de alterações.</figcaption></figure>
+<p>O menu <span class="menu">Alterações</span> mostra as 500 ações mais recentes: quando, quem (com perfil), ação e detalhe. Use o campo de filtro para procurar por pessoa, paciente ou tipo de ação. A lista completa fica na aba <b>Registro</b> da planilha.</p>
+<p>Ficam registrados: agendamentos, presenças, faltas, cancelamentos, remarcações, cadastros e edições de pacientes e profissionais, fila, bloqueios, meta, fechamento e reabertura de mês, criação e mudança de acessos, evoluções e complementos, autorizações e revogações de compartilhamento, consultas a evoluções e passagens pela enfermagem.</p>
+
+<h2><span class="n">10</span>Evoluções e sigilo</h2>
+<ul>
+  <li>Só o profissional que atendeu (conta vinculada) faz a evolução, e só depois da presença registrada. Não existe evolução de atendimento futuro.</li>
+  <li>A evolução gravada <b>não muda</b>. Correções entram como <b>complemento</b>, com data e autor. Atendimento com evolução não pode ser cancelado nem remarcado.</li>
+  <li>Outro profissional (ou a Direção/CEPRESS) só lê se o autor <b>compartilhar</b>: uma evolução, todas daquele paciente, ou todas do autor. O autor pode revogar.</li>
+  <li>Compartilhar não abre a ficha do paciente para quem recebe.</li>
+  <li>A <b>Administradora geral</b> consulta todas as evoluções; cada consulta aparece no histórico como "Consultou evoluções · acesso geral".</li>
+  <li>Recepção e Administração não veem evoluções.</li>
+</ul>
+<h3>Modelos por especialidade</h3>
+<p>Há modelos para 13 especialidades (Psicologia, Terapia Ocupacional, Fonoaudiologia, Neuropsicologia, Psicopedagogia, Neuropediatria, Psiquiatria, Musicoterapia, Psicomotricidade, Fisioterapia, Serviço Social, Enfermagem e Nutrição), todos com a estrutura da ficha de Terapia Ocupacional: objetivo, duração, chegada, condutas, resposta, saída e observações. Especialidades sem modelo próprio recebem um modelo genérico.</p>
+<div class="caixa atencao"><b>Revisão pelas equipes</b>Só o modelo de Terapia Ocupacional foi baseado na ficha real da unidade. Os outros são <b>propostas iniciais, não protocolos validados</b>. Peça a cada equipe que revise os itens; a mudança dos itens é feita no código (lista <code>CONDUTAS</code> no arquivo Código.gs) e exige publicar uma versão nova.</div>
+<p class="pequeno">A autoria registrada não equivale a assinatura digital certificada.</p>
+
+<h2><span class="n">11</span>A planilha: o que tem em cada aba</h2>
+<table>
+  <tr><th>Aba</th><th>O que guarda</th></tr>
+  <tr><td><b>Config</b></td><td>Configurações: Capacidade da unidade, metas ("Meta AAAA-MM"), meses fechados ("Fechado AAAA-MM") e a ligação com a planilha de prontuários. <i>Protegida.</i></td></tr>
+  <tr><td><b>Usuários</b></td><td>Acessos: nome, código, perfil, profissional vinculado, função, telefone, e-mail, ativo. <i>Protegida.</i></td></tr>
+  <tr><td><b>Pacientes</b></td><td>Cadastro dos pacientes (prontuário, nome, responsável, telefone, status, documentos, endereço, perfil, suporte).</td></tr>
+  <tr><td><b>Profissionais</b></td><td>Cadastro dos profissionais (ID P01, P02…, especialidade, tipo de agenda, duração, máximo por dia, ativo, contato).</td></tr>
+  <tr><td><b>Expediente</b></td><td>Turnos de cada profissional: dia, início, fim, intervalo e sala.</td></tr>
+  <tr><td><b>Vagas Fixas</b></td><td>Horários que se repetem (semanal, quinzenal, a cada 4 semanas), com início, fim e status.</td></tr>
+  <tr><td><b>Atendimentos</b></td><td>Sessões avulsas e o que aconteceu em cada sessão (presença, falta, cancelamento…) dos últimos 90 dias e do futuro.</td></tr>
+  <tr><td><b>Histórico</b></td><td>Atendimentos com mais de 90 dias (movidos para cá toda madrugada, para o sistema continuar rápido).</td></tr>
+  <tr><td><b>Fila Interna</b></td><td>Pacientes aguardando outra terapia: especialidade, entrada, prioridade, status.</td></tr>
+  <tr><td><b>Bloqueios</b></td><td>Feriados (sem profissional = clínica toda), férias e licenças.</td></tr>
+  <tr><td><b>Registro</b></td><td>Histórico de alterações (só acrescenta linhas).</td></tr>
+  <tr><td><b>Enfermagem</b></td><td>Passagens pela enfermagem. <i>Protegida.</i></td></tr>
+  <tr><td><b>Evoluções</b></td><td>Evoluções e complementos (o conteúdo fica na coluna "Conteúdo"). <i>Protegida.</i></td></tr>
+  <tr><td><b>Compartilhamentos</b></td><td>Autorizações de leitura de evoluções e revogações. <i>Protegida.</i></td></tr>
+</table>
+<p class="pequeno">"Protegida" = só a conta dona da planilha edita direto na aba; a equipe grava pelo site.</p>
+
+<h2><span class="n">12</span>O que pode e o que não pode mexer na planilha</h2>
+<div class="caixa proibido"><b>Nunca faça</b>
+<ul style="margin:0">
+  <li>Renomear ou apagar abas, ou mudar os títulos da primeira linha (o sistema procura as colunas pelo nome).</li>
+  <li>Apagar linhas de Evoluções, Compartilhamentos, Registro, Enfermagem, Atendimentos ou Histórico.</li>
+  <li>Mudar a ordem das linhas ou classificar (ordenar) as abas.</li>
+  <li>Mudar o formato das colunas (o prontuário "0001" viraria o número 1).</li>
+  <li>Compartilhar a planilha com quem não é da gestão — ela tem dados de saúde e os códigos de acesso.</li>
+</ul></div>
+<div class="caixa dica"><b>Pode fazer com cuidado (prefira sempre as telas do site)</b>
+<ul style="margin:0">
+  <li>Corrigir um erro de digitação num nome ou telefone.</li>
+  <li>Acrescentar feriados na aba Bloqueios (data no formato AAAA-MM-DD; Profissional ID vazio = clínica toda).</li>
+  <li>Mudar a Capacidade na aba Config.</li>
+  <li>Consultar, filtrar (com "Criar um filtro") e copiar dados para relatórios.</li>
+</ul></div>
+<p>Toda mudança feita direto na planilha <b>não</b> passa pelas regras do sistema (conflitos, permissões) e <b>não</b> aparece no histórico de alterações. Por isso as telas são sempre o caminho preferido.</p>
+
+<h2><span class="n">13</span>Menu CEPRESS da planilha e sincronização de prontuários</h2>
+<p>Ao abrir a planilha, aparece no alto o menu <span class="menu">CEPRESS</span>:</p>
+<table>
+  <tr><th>Item</th><th>Para que serve</th></tr>
+  <tr><td>Configurar planilha</td><td>Cria abas e colunas que faltarem e reaplica as listas de opções. Rode depois de publicar uma versão que traga abas ou colunas novas. Não apaga nada.</td></tr>
+  <tr><td>Novo usuário</td><td>Jeito antigo de criar acesso (nasce com perfil Recepção). Prefira a tela Equipe do site.</td></tr>
+  <tr><td>Sincronizar pacientes agora</td><td>Copia a lista de pacientes da planilha de prontuários da unidade (se estiver configurada).</td></tr>
+  <tr><td>Sincronizar pacientes a cada hora</td><td>Liga a cópia automática de hora em hora.</td></tr>
+</table>
+<h3>Ligar com a planilha de prontuários</h3>
+<p>Na aba <b>Config</b>, preencha: <i>Prontuários: planilha (link ou ID)</i>, <i>Prontuários: aba</i> e os nomes das colunas de nº, nome, responsável, telefone e status. A coluna de status precisa ter só "Ativo" ou "Inativo". Por segurança, a sincronização não roda se a planilha de origem vier vazia, com colunas erradas, ou com queda grande no número de ativos — nesse caso aparece uma mensagem e nada é alterado.</p>
+<div class="caixa atencao"><b>Atenção</b>Com a sincronização ligada, a lista de pacientes é a da planilha de prontuários: mudanças de nome, telefone ou status feitas no site podem ser substituídas na próxima cópia. Combine com a equipe onde o cadastro é mantido.</div>
+
+<h2><span class="n">14</span>Rotinas automáticas</h2>
+<table>
+  <tr><th>Rotina</th><th>Quando</th><th>O que faz</th></tr>
+  <tr><td>Arquivamento</td><td>Todo dia, de madrugada (3h)</td><td>Move atendimentos com mais de 90 dias de Atendimentos para Histórico. Grava primeiro no Histórico e só depois apaga — nunca perde dados.</td></tr>
+  <tr><td>Cópia de segurança</td><td>Todo domingo (4h)</td><td>Faz uma cópia da planilha inteira no Google Drive (veja o capítulo 15).</td></tr>
+  <tr><td>Saída automática</td><td>30 min sem uso</td><td>Tira a pessoa do sistema no computador.</td></tr>
+  <tr><td>Proteção de login</td><td>Sempre</td><td>5 códigos errados bloqueiam o aparelho por 10 minutos.</td></tr>
+</table>
+<p>As rotinas ficam no editor do código, no ícone de relógio <b>Acionadores</b> (menu da esquerda). Não apague esses acionadores.</p>
+
+<h2><span class="n">15</span>Cópia de segurança e como recuperar dados</h2>
+<h3>Como funciona</h3>
+<ul>
+  <li>Todo domingo às 4h o Google copia a planilha inteira para o Drive da conta da unidade, com o nome <b>"CEPRESS - Agenda (cópia de segurança AAAA-MM-DD)"</b>.</li>
+  <li>A cópia guarda todas as abas, inclusive evoluções e códigos. Ela fica só no Drive da conta: <b>não compartilhe</b>.</li>
+  <li>As cópias se acumulam (uma por semana). De tempos em tempos, apague as mais antigas no Drive (por exemplo, mantenha os últimos 2 meses).</li>
+</ul>
+<div class="caixa atencao"><b>Antes de confiar na cópia: faça um teste</b>No editor do código, escolha a função <code>copiaDeSeguranca</code> na lista do alto e clique em <b>Executar</b>. Se o Google pedir autorização, aceite com a conta da unidade. Depois procure a cópia no Drive. Repita o teste a cada alguns meses.</div>
+<h3>Recuperar algo apagado por engano</h3>
+<ol class="passos">
+  <li>Primeiro tente o <b>Histórico de versões</b> da própria planilha: <i>Arquivo → Histórico de versões → Ver histórico de versões</i>. O Google guarda versões antigas automaticamente.</li>
+  <li>Se não resolver, abra no Drive a cópia de segurança mais recente <b>de antes</b> do problema.</li>
+  <li>Na cópia, selecione as linhas que sumiram e copie (Ctrl+C).</li>
+  <li>Na planilha principal, cole no fim da aba correspondente (Ctrl+Shift+V, para colar só os valores).</li>
+  <li>Abra o site e confira se a informação voltou.</li>
+</ol>
+<p class="pequeno">Nunca substitua a planilha principal pela cópia (o sistema está ligado à planilha original pelo identificador dela); copie só os dados.</p>
+
+<h2><span class="n">16</span>O código do sistema e como publicar uma versão nova</h2>
+<p>O código fica no projeto Apps Script ligado à planilha (Extensões → Apps Script). Arquivos:</p>
+<table>
+  <tr><th>Arquivo</th><th>Conteúdo</th></tr>
+  <tr><td>Código.gs</td><td>Servidor: permissões, gravações, indicadores, evoluções, modelos das especialidades (CONDUTAS), menu da planilha, rotinas.</td></tr>
+  <tr><td>Logica.gs</td><td>Regras de horário, conflito, datas, CPF e CNS.</td></tr>
+  <tr><td>Index.html</td><td>O site e todas as telas da Área da equipe.</td></tr>
+  <tr><td>appsscript.json</td><td>Configuração (fuso de São Paulo, quem pode acessar).</td></tr>
+</table>
+<p>Uma cópia de todos os arquivos, com testes automáticos e versões anteriores, está na pasta do projeto no computador e no HD externo (pasta CEPRESS → apps-script).</p>
+<h3>Publicar uma mudança</h3>
+<ol class="passos">
+  <li>Faça a mudança no editor e clique no ícone de disquete <b>Salvar projeto</b>.</li>
+  <li>Se a mudança traz abas ou colunas novas, rode <code>configurar</code> (lista de funções → configurar → Executar) ou use o menu CEPRESS → Configurar planilha.</li>
+  <li><b>Teste no link de teste (/dev)</b> (capítulo 2): o site precisa abrir com logo e botão "Área da equipe", e o login precisa responder.</li>
+  <li>Só então publique: <b>Implantar → Gerenciar implantações</b> → ícone de lápis (Editar) → em <b>Versão</b> escolha <b>Nova versão</b> → <b>Implantar</b> → Concluído.</li>
+  <li>O link oficial continua o mesmo e já mostra a versão nova.</li>
+</ol>
+<div class="caixa proibido"><b>Cuidados técnicos importantes</b>
+<ul style="margin:0">
+  <li>Não use "Nova implantação": isso cria outro link. Sempre <b>edite</b> a implantação existente.</li>
+  <li>No Index.html, nunca escreva endereços como <code>'https://...'</code> entre aspas simples ou crases: o Google corta a linha no "//" e o site inteiro para de funcionar. Escreva <code>'https:\/\/...'</code> ou use aspas duplas.</li>
+  <li>Não deixe o editor aberto em duas abas do navegador ao mesmo tempo (o salvamento trava).</li>
+  <li>Algo deu errado depois de publicar? Em Gerenciar implantações → Editar, escolha a <b>versão anterior</b> e Implantar: o site volta como estava.</li>
+</ul></div>
+
+<h2><span class="n">17</span>Segurança e proteção de dados</h2>
+<p>O sistema guarda dados pessoais e de saúde de crianças e adolescentes (LGPD — dados sensíveis). Responsabilidades da gestão:</p>
+<ul>
+  <li><b>Códigos pessoais</b>: um por pessoa, entregue pessoalmente. Desative no mesmo dia em que alguém sair da equipe.</li>
+  <li><b>Perfis certos</b>: dê a cada pessoa só o perfil de que ela precisa.</li>
+  <li><b>Conta Google da unidade</b>: senha forte e verificação em duas etapas ligada. Quem tem essa conta tem acesso a tudo (planilha, código e cópias).</li>
+  <li><b>Planilha e cópias</b>: não compartilhe. Toda a equipe trabalha pelo site.</li>
+  <li><b>Computadores compartilhados</b>: oriente a equipe a clicar em "Sair da conta" ao terminar.</li>
+  <li><b>Revisão periódica</b>: uma vez por mês, abra <span class="menu">Equipe</span> e confira se todos os acessos ativos ainda são necessários; olhe o histórico de "Consultou evoluções".</li>
+  <li><b>Evoluções</b>: são sigilosas; o compartilhamento é decisão do autor.</li>
+</ul>
+
+<h2><span class="n">18</span>Problemas comuns e soluções</h2>
+<table>
+  <tr><th>Problema</th><th>Causa provável e solução</th></tr>
+  <tr><td>Alguém diz que o código "não funciona"</td><td>Confira em Equipe se o acesso está Ativo. Se o nome da pessoa foi digitado de novo direto na aba Usuários, a planilha pode ter gerado um código novo. Gere um código novo pela tela e entregue.</td></tr>
+  <tr><td>"Muitas tentativas erradas neste aparelho"</td><td>Esperar 10 minutos. O bloqueio é só daquele computador.</td></tr>
+  <tr><td>O site abre em branco, sem logo ou sem o botão "Área da equipe"</td><td>Erro na última versão publicada. Volte para a versão anterior (capítulo 16) e corrija testando no link /dev.</td></tr>
+  <tr><td>Profissional não aparece para agendar</td><td>Verifique se está Ativo, se tem dias e horários cadastrados e se o tipo de agenda não é "Livre".</td></tr>
+  <tr><td>Horário não aparece livre</td><td>Pode ser vaga fixa de outro paciente (em semanas seguintes), intervalo, bloqueio ou o máximo do dia.</td></tr>
+  <tr><td>Profissional não consegue evoluir</td><td>Acesso sem "Profissional vinculado", ou a presença ainda não foi registrada.</td></tr>
+  <tr><td>Indicador com muitos "agendados sem registro"</td><td>Presenças/faltas não registradas. Peça à recepção para completar antes de fechar o mês.</td></tr>
+  <tr><td>Preciso mudar algo num mês fechado</td><td>A Administradora geral reabre o mês nos Indicadores, faz a correção e fecha de novo.</td></tr>
+  <tr><td>Sistema lento</td><td>Normal levar de 1 a 3 segundos por ação. Se piorar muito, confira se o arquivamento diário está ativo (Acionadores).</td></tr>
+</table>
+
+<h2><span class="n">19</span>Pendências e limites conhecidos</h2>
+<ul>
+  <li><b>Endereço e telefone da unidade</b> no rodapé do site ainda não foram incluídos (aguardando confirmação).</li>
+  <li><b>Acesso sem conta Google e domínio próprio</b>: hoje o link exige que a pessoa esteja logada numa conta Google e o endereço é do Google. Ter um nome próprio (ex.: teavilaentrerios.com.br) e acesso sem conta Google depende de uma decisão da gestão (mudar a configuração de acesso e hospedar o site em outro serviço).</li>
+  <li><b>Modelos de evolução</b>: precisam de revisão clínica de cada especialidade (capítulo 10).</li>
+  <li><b>Lembretes de WhatsApp</b> são semiautomáticos: a recepção envia um por um. Envio automático exigiria contratar a API oficial do WhatsApp Business.</li>
+  <li><b>Fila do Complexo Regulador</b> (externa) não é integrada.</li>
+  <li><b>Plano terapêutico</b>: a ficha mostra as terapias pelos agendamentos; ainda não há plano terapêutico com objetivos e validade.</li>
+  <li><b>Assinatura digital</b>: a autoria fica registrada, mas não é assinatura certificada.</li>
+  <li><b>Dados reais</b>: antes de começar, importar cadastros e histórico existentes e testar com contas reais de cada perfil.</li>
+</ul>
+
+<h2><span class="n">20</span>Rotina recomendada da direção</h2>
+<table>
+  <tr><th>Quando</th><th>O que fazer</th></tr>
+  <tr><td>Todo dia</td><td>Olhar o Painel: faltas de hoje e o quadro de 3 faltas seguidas.</td></tr>
+  <tr><td>Toda semana</td><td>Conferir a fila interna (prioridades) e se a cópia de segurança de domingo apareceu no Drive.</td></tr>
+  <tr><td>Fim do mês</td><td>Conferir "agendados sem registro" nos Indicadores, pedir as correções, <b>fechar o mês</b> e definir a meta do mês seguinte.</td></tr>
+  <tr><td>Todo mês</td><td>Revisar acessos em Equipe (quem saiu, quem mudou de função) e apagar cópias de segurança antigas.</td></tr>
+  <tr><td>Antes de feriados e férias</td><td>Cadastrar em Bloqueios com antecedência, para a recepção avisar as famílias.</td></tr>
+  <tr><td>Todo ano</td><td>Cadastrar os feriados do ano seguinte e revisar os profissionais e expedientes.</td></tr>
+</table>
+</body></html>

@@ -1,0 +1,40 @@
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+:root { --azul: #1c4f8f; --azul2: #e3edf9; --tinta: #1d2b3a; --cinza: #5b6b7c; --linha: #d6dee8; --amarelo: #fff4d1; --verde: #e2f3e8; --vermelho: #fbe1dc; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 10.5pt/1.5 "Liberation Sans", Arial, Helvetica, sans-serif; color: var(--tinta); }
+h1, h2, h3 { color: var(--azul); font-family: Georgia, "Liberation Serif", serif; font-weight: 400; line-height: 1.2; }
+h2 { font-size: 20pt; margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 2px solid var(--azul); page-break-before: always; break-before: page; }
+h2 .n { display: inline-block; min-width: 11mm; color: #fff; background: var(--azul); border-radius: 3px; text-align: center; margin-right: 3mm; font: 700 14pt/1.6 "Liberation Sans", Arial, sans-serif; }
+h3 { font-size: 13.5pt; margin: 6mm 0 2mm; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+.capa { height: 255mm; display: flex; flex-direction: column; justify-content: space-between; padding: 10mm 4mm; }
+.capa img.logo { width: 70mm; }
+.capa h1 { font-size: 34pt; margin: 0 0 4mm; }
+.capa .sub { font-size: 14pt; color: var(--cinza); }
+.capa .faixa { border-top: 4px solid var(--azul); padding-top: 4mm; color: var(--cinza); font-size: 10pt; }
+.sumario { break-before: page; }
+.sumario ol { columns: 1; font-size: 11.5pt; line-height: 1.9; padding-left: 6mm; }
+ol.passos { counter-reset: p; list-style: none; padding: 0; margin: 2mm 0 4mm; }
+ol.passos > li { counter-increment: p; position: relative; padding: 1.2mm 0 1.2mm 10mm; break-inside: avoid; }
+ol.passos > li::before { content: counter(p); position: absolute; left: 0; top: 1mm; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--azul); color: #fff; font: 700 9.5pt/6.5mm Arial, sans-serif; text-align: center; }
+ul { margin: 1mm 0 3mm; padding-left: 6mm; }
+li { margin: .6mm 0; }
+.bt { display: inline-block; border: 1px solid #b9c6d6; border-radius: 3px; padding: 0 1.6mm; background: #fff; font: 700 9.5pt/1.5 Arial, sans-serif; color: var(--azul); white-space: nowrap; }
+.menu { display: inline-block; background: var(--azul2); border-radius: 3px; padding: 0 1.6mm; font-weight: 700; color: var(--azul); white-space: nowrap; }
+.caixa { border-radius: 4px; padding: 3mm 4mm; margin: 3mm 0; break-inside: avoid; border-left: 4px solid; }
+.dica { background: var(--verde); border-color: #2e8a57; }
+.atencao { background: var(--amarelo); border-color: #c99a14; }
+.proibido { background: var(--vermelho); border-color: #b42318; }
+.caixa > b:first-child { display: block; margin-bottom: 1mm; }
+figure { margin: 3mm 0 4mm; break-inside: avoid; }
+figure img { width: 100%; max-height: 130mm; object-fit: cover; object-position: top; border: 1px solid var(--linha); border-radius: 4px; display: block; }
+figure.meia img { width: 75%; margin: 0 auto; }
+figcaption { font-size: 9pt; color: var(--cinza); margin-top: 1.2mm; text-align: center; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 9.8pt; break-inside: auto; }
+th { background: var(--azul2); color: var(--azul); text-align: left; font-size: 9pt; text-transform: uppercase; letter-spacing: .03em; }
+th, td { border: 1px solid var(--linha); padding: 1.6mm 2.2mm; vertical-align: top; }
+tr { break-inside: avoid; }
+.st { display: inline-block; border-radius: 10px; padding: 0 2mm; font-size: 9pt; font-weight: 700; }
+.s-ag { background: #eef2f7; } .s-cf { background: #dbeafe; } .s-ok { background: var(--verde); color: #1d6b3f; } .s-fa { background: var(--vermelho); color: #8d1d12; } .s-ca { background: #eee; color: #555; } .s-re { background: var(--amarelo); }
+code { background: #eef2f7; padding: 0 1mm; border-radius: 2px; font-size: 9.5pt; }
+.pequeno { font-size: 9pt; color: var(--cinza); }

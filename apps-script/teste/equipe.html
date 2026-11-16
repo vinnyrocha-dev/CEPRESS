@@ -1,0 +1,291 @@
+<style>
+/* ===== Área da equipe (sistema de agendamento) ===== */
+@media (min-width:901px){header{display:grid;grid-template-columns:1fr auto 1fr}header nav{justify-self:center}header .team-btn{justify-self:end}}
+.team-btn{font:inherit;font-size:15px;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:12px 20px;cursor:pointer;white-space:nowrap}
+.team-btn:hover{background:var(--paper)}
+@media (max-width:900px){.team-btn{padding:8px 12px;font-size:13px}}
+/* O site original esconde o menu abaixo de 900px; aqui os links ficam sempre visíveis, numa linha abaixo do logo. */
+@media (max-width:900px){header{height:auto;flex-wrap:wrap;row-gap:6px;padding-top:12px;padding-bottom:12px}header nav{display:flex;order:3;width:100%;justify-content:center;gap:22px;font-size:13px}}
+#login{position:fixed;inset:0;background:#102d5566;display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+#login.on{display:flex}
+#login form{background:#fff;border-radius:10px;padding:28px;width:100%;max-width:380px;box-shadow:0 20px 50px #102d5533}
+#login h3{margin:0 0 6px;color:var(--ink);font-size:20px}
+#login p{margin:0 0 16px;color:var(--muted);font-size:14px}
+#login input{width:100%;box-sizing:border-box;font:inherit;padding:12px;border:1px solid var(--line);border-radius:6px;margin-bottom:12px}
+#login .acts{display:flex;gap:10px;justify-content:flex-end}
+#login .btn{font:inherit;font-size:14px;background:#1c4f8f;color:#fff;border:1px solid #1c4f8f;border-radius:6px;padding:10px 18px;cursor:pointer}
+#login .btn:disabled,#login input:disabled{opacity:.6;cursor:wait}
+#login .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+#lerro{color:#a8432f!important}
+#equipe{display:none;min-height:calc(100vh - 110px);background:var(--paper)}
+#equipe.on{display:grid;grid-template-columns:220px 1fr}
+.side{background:#e7eff9;padding:28px 12px;border-right:1px solid var(--line)}
+.side .k{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--ink);margin:0 0 18px 4px}
+.side button{display:block;width:100%;text-align:left;font:inherit;font-size:15px;color:var(--ink);background:none;border:0;border-radius:6px;padding:13px 16px;margin-bottom:4px;cursor:pointer}
+.side button.on{background:#cfe0f5;font-weight:700}
+.side .ic{display:inline-block;width:22px;opacity:.8}
+.side #menu-eq{display:block;font-size:inherit;gap:0} /* o site estiliza toda nav como menu horizontal */
+.side .unit{font-size:12px;color:var(--ink);margin:26px 4px 0}
+.side .unit small{display:block;color:var(--muted);font-size:11px}
+.area{padding:26px 34px 60px;min-width:0}
+.top{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:14px}
+.top a{color:var(--ink);cursor:pointer;text-decoration:underline;margin-left:14px}
+#ocup{display:none;color:#1c4f8f;font-weight:700}
+body.ocupado #ocup{display:inline}
+body.ocupado #tela,body.ocupado .side{pointer-events:none}
+body.ocupado #tela{opacity:.55}
+.area .eyebrow{margin:0}
+.area h2{font-family:Georgia,serif;font-weight:400;font-size:32px;color:var(--ink);margin:6px 0 22px}
+#tela{color:var(--ink);font-size:14px}
+#tela input,#tela select,#tela textarea,#tela button{font:inherit;font-size:14px;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+#tela button{cursor:pointer}
+#tela button.pri,#tela .btn{background:#1c4f8f;color:#fff;border-color:#1c4f8f}
+#tela .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+#tela label{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted)}
+.bar,#tela .row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-bottom:16px}
+.bar .sp{flex:1}
+#tela .card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:14px}
+#tela .mut{color:var(--muted);font-size:12.5px}
+#tela .ok{color:#1d7a4a}#tela .er{color:#a8432f}#tela .wa{color:#8a5a00}
+#tela .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));align-items:start}
+#tela .met{background:#fff;border:1px solid var(--line);border-top:3px solid #1c4f8f;border-radius:6px;padding:14px 16px}
+#tela .met b{display:block;font:400 28px/1.2 Georgia,serif;color:#1c4f8f}
+#tela table{width:100%;border-collapse:collapse;background:#fff}
+#tela th,#tela td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+#tela th{background:#e3edf9;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700}
+.tw,#tela .tab{overflow-x:auto;border:1px solid var(--line);border-radius:6px;margin:8px 0 20px}
+#tela h3{margin:24px 0 8px;font-size:18px}
+#tela .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px;margin-bottom:12px}
+#tela .slots button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+#tela .slots button.sel{background:#1c4f8f;color:#fff}
+#tela .kpis{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin:12px 0 22px}
+#tela .kpi{background:#fff;border:1px solid var(--line);border-top:3px solid #1c4f8f;border-radius:6px;padding:16px 18px}
+#tela .kpi b{display:block;font:400 30px/1.2 Georgia,serif;color:#1c4f8f}
+#tela .kpi span{font-size:13px;color:var(--muted)}
+#tela .meta{background:#e7eff9;border:1px solid var(--line);border-radius:6px;padding:18px;margin-bottom:20px}
+.aviso{background:#fff2cc;border:1px solid #f3d27a;border-radius:6px;padding:12px 16px;margin-bottom:16px;color:#6b5310;font-weight:700}
+.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.col{background:#fff;border:1px solid var(--line);border-top:3px solid #1c4f8f;border-radius:6px;overflow:hidden}
+.col .hd{background:#e3edf9;padding:16px 18px;font-size:12.5px;color:var(--muted);line-height:1.8}
+.col .hd b{display:block;font-size:17px;color:var(--ink);line-height:1.4}
+.it{display:grid;grid-template-columns:48px 1fr;padding:14px 16px;border-top:1px solid var(--line)}
+.it .h{font-size:13px;font-weight:700}
+.it .n{font-weight:700;font-size:15px}
+.it small{color:var(--muted);font-weight:400}
+.st{display:inline-block;font-size:11px;border-radius:10px;padding:3px 10px;margin:6px 0 8px;background:#eef2f7;color:#4e6581}
+.st.Realizado{background:#dbe8fb;color:#1c4f8f}.st.Faltou{background:#fbe1dc;color:#a8432f}
+.st.Cancelado,.st.Remarcado,.st.Paciente{background:#eee;color:#777}.st.Sem{background:#fff2cc;color:#6b5310}
+#tela .acts2{display:flex;flex-wrap:wrap;gap:6px}
+#tela .acts2 button{font-size:11.5px;padding:5px 9px;border-radius:4px}
+#tela .extra{margin-top:10px;padding:10px;background:#f5f8fd;border:1px solid var(--line);border-radius:6px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.vazio{padding:18px;color:var(--muted);font-size:14px}
+tr.lk{cursor:pointer}tr.lk:hover td{background:#f5f8fd}
+#toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);max-width:90vw;padding:12px 16px;border-radius:8px;color:#fff;white-space:pre-line;display:none;z-index:60}
+@media (max-width:800px){
+  #equipe.on{display:block}
+  .side{display:flex;overflow-x:auto;gap:4px;padding:10px 12px;border-right:0;border-bottom:1px solid var(--line)}
+  .side .k,.side .unit{display:none}
+  .side button{width:auto;white-space:nowrap;padding:10px 12px;margin:0}
+  .side #menu-eq{display:flex;gap:4px}
+  .area{padding:20px 16px 50px}
+  .area h2{font-size:26px}
+}
+</style>
+<!--HTML-->
+<div id="login"><form>
+  <h3>Acesso da equipe</h3>
+  <p>Digite o seu código pessoal de acesso.</p>
+  <input id="cod" type="password" autocomplete="current-password" aria-label="Código de acesso" placeholder="Código de acesso">
+  <p id="lerro" role="alert"></p>
+  <div class="acts"><button type="button" class="btn ghost" id="lgx">Cancelar</button><button class="btn">Entrar</button></div>
+</form></div>
+<section id="equipe" aria-label="Área da equipe">
+  <aside class="side"><p class="k">GESTÃO DA UNIDADE</p><nav id="menu-eq" aria-label="Área da equipe"></nav>
+    <p class="unit">TEA Vila Entre Rios<small>Sistema de agendamento CEPRESS</small></p></aside>
+  <div class="area">
+    <div class="top"><span><span id="quem"></span> <span id="ocup" role="status">Aguarde…</span></span><span><a id="voltar">Voltar ao site ↗</a><a id="sair">Sair da conta ↗</a></span></div>
+    <p class="eyebrow" id="areaeq"></p><h2 id="titulo"></h2>
+    <div id="tela"></div>
+  </div>
+</section>
+<datalist id="dl-pac"></datalist>
+<div id="toast"></div>
+<!--/HTML-->
+<script>
+document.querySelectorAll('img[data-logo]').forEach(i => { i.src = LOGO; });
+document.getElementById('favicon').href = LOGO;
+document.querySelector('header').insertAdjacentHTML('beforeend', '<button class="team-btn" type="button" id="entrar">Área da equipe ↗</button>');
+
+const $ = s => document.querySelector(s);
+const main = $('#tela');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const br = iso => iso ? iso.split('-').reverse().join('/') : '';
+const opt = (v, txt, sel) => `<option value="${esc(v)}"${sel ? ' selected' : ''}>${esc(txt == null ? v : txt)}</option>`;
+const DIAS_SEM = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const DIAS_CURTO = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+const qtd = (n, um, varios) => n + ' ' + (n === 1 ? um : varios);
+const maisDias = (iso, n) => new Date(Date.parse(iso + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10);
+let D = {}, diaAg, espAg = '';
+
+/*REAPROVEITADO*/
+
+// ---------- Agenda do dia (uma coluna por profissional) ----------
+const NAO_OCUPA = ['Cancelado', 'Remarcado', 'Sem atendimento', 'Paciente inativo'];
+async function vAgenda(data) {
+  diaAg = data || diaAg || D.hoje;
+  main.innerHTML = `<div class="bar">
+      <button class="btn ghost" id="ant" aria-label="Dia anterior">‹</button><input type="date" id="dt" value="${diaAg}" aria-label="Dia"><button class="btn ghost" id="prox" aria-label="Próximo dia">›</button>
+      <button class="btn ghost" id="hj">Hoje</button>
+      <select id="fe" aria-label="Especialidade">${opt('', 'Todas as especialidades')}${D.especialidades.map(e => opt(e, e, e === espAg)).join('')}</select>
+      <span class="sp"></span><button class="btn" id="novo">+ Novo agendamento</button></div>
+    <div id="fer"></div><div id="ag" class="cols">Carregando…</div>`;
+  $('#ant').onclick = () => vAgenda(maisDias(diaAg, -1));
+  $('#prox').onclick = () => vAgenda(maisDias(diaAg, 1));
+  $('#hj').onclick = () => vAgenda(D.hoje);
+  $('#novo').onclick = () => ir('Agendar');
+  // Ao digitar a data, cada número dispara "input": espera terminar de digitar e ignora anos incompletos.
+  $('#dt').oninput = e => { clearTimeout(vAgenda.t); const v = e.target.value; if (v >= '2000') vAgenda.t = setTimeout(() => vAgenda(v), 700); };
+  const r = await api('agenda', diaAg), cols = r.profs, dw = new Date(diaAg + 'T12:00:00Z').getUTCDay();
+  if (r.feriado) $('#fer').innerHTML = `<div class="aviso">Sem atendimento na clínica: ${esc(r.feriado)}</div>`;
+  const desenhar = () => {
+    $('#ag').innerHTML = cols.filter(p => !espAg || p.esp === espAg).map(p => {
+      const oc = p.tipo === 'Ordem de chegada', ocupadas = p.itens.filter(i => NAO_OCUPA.indexOf(i.status) < 0).length;
+      const turnos = (((D.profs.find(x => x.id === p.id) || {}).horarios || []).find(h => h.dia === dw) || { turnos: [] }).turnos;
+      return `<div class="col"><div class="hd"><b>${esc(p.esp)}</b>${esc(p.nome)}${p.sala ? ' · ' + esc(p.sala) : ''}<br>
+        ${turnos.map(t => esc(t.inicio + '–' + t.fim) + (t.intIni ? ' · intervalo ' + esc(t.intIni + '–' + t.intFim) : '')).join(' e ')}<br>
+        ${oc ? `Ordem de chegada · <span class="${p.max && ocupadas >= p.max ? 'er' : ''}">${ocupadas}/${p.max || '∞'} no dia</span>` : qtd(ocupadas, 'atendimento no dia', 'atendimentos no dia')}
+        ${p.bloqueio ? `<div class="wa"><b>Sem atendimento: ${esc(p.bloqueio)}</b>${p.itens.length ? '<br>Avise ou remarque os pacientes abaixo.' : ''}</div>` : ''}</div>
+        ${p.itens.map((it, i) => `<div class="it" data-p="${esc(p.id)}" data-i="${i}"><span class="h">${oc ? (i + 1) + 'º' : esc(it.hora)}</span><div>
+          <div class="n">${esc(it.nome)}${it.freq === 'Avulsa' ? ' <small>· avulsa</small>' : ''}</div>
+          <span class="st ${esc(it.status.split(' ')[0])}">${esc(it.status)}${it.motivo ? ': ' + esc(it.motivo) : ''}</span>
+          ${it.status === 'Remarcado' ? '' : `<div class="acts2"><button data-s="Realizado">Presença</button><button data-s="Faltou">Falta</button><button data-s="Cancelado">Cancelar</button>
+            ${['Realizado', 'Faltou', 'Cancelado'].indexOf(it.status) >= 0 ? '<button data-s="Agendado">Desfazer</button>' : ''}<button data-mais="1">${oc ? 'Passar ▾' : 'Remarcar ▾'}</button></div>`}
+        </div></div>`).join('') || '<div class="vazio">Ninguém agendado.</div>'}</div>`;
+    }).join('') || `<div class="vazio">Nenhum profissional atende ${DIAS_SEM[dw]}.</div>`;
+  };
+  $('#fe').onchange = e => { espAg = e.target.value; desenhar(); };
+  $('#ag').onclick = async e => {
+    const b = e.target.closest('button'), el = e.target.closest('.it');
+    if (!b || !el || b.closest('.extra')) return;
+    const col = cols.find(c => c.id === el.dataset.p), it = col.itens[el.dataset.i], oc = col.tipo === 'Ordem de chegada';
+    const ref = { atend: it.atend, vaga: it.vaga, data: diaAg }, aberto = el.querySelector('.extra');
+    if (b.dataset.mais) {
+      document.querySelectorAll('#ag .extra').forEach(x => x.remove());
+      if (aberto) return; // segundo clique: só fecha
+      el.querySelector('.acts2').insertAdjacentHTML('afterend', `<div class="extra">
+        <label>Motivo (opcional)<input class="mot"></label>
+        <label>${oc ? 'Passar para o dia' : 'Nova data'}<input type="date" class="nd" value="${diaAg}"></label>
+        ${oc ? '' : '<label>Horário<input type="time" class="nh" step="300"></label>'}
+        <button class="pri rem">${oc ? 'Passar' : 'Remarcar'}</button><div class="lotfila" style="flex-basis:100%"></div></div>`);
+      const x = el.querySelector('.extra');
+      x.querySelector('.rem').onclick = async () => {
+        const nd = x.querySelector('.nd').value, nh = oc ? '' : x.querySelector('.nh').value, mot = x.querySelector('.mot').value;
+        if (!nd || (!oc && !nh)) return aviso(oc ? 'Escolha o novo dia.' : 'Informe a nova data e o horário.', true);
+        if (oc && nd === diaAg) return aviso('Escolha outro dia.', true);
+        try {
+          await api('remarcar', Object.assign({ novaData: nd, motivo: mot }, oc ? {} : { novaHora: nh }, ref));
+          aviso(oc ? 'Passado para a lista de ' + br(nd) + '.' : 'Remarcado para ' + br(nd) + ' às ' + nh + '.'); vAgenda();
+        } catch (er) { if (oc && /LOTADO/.test(er.message)) ofereceFila(x.querySelector('.lotfila'), it.pront, col.esp); }
+      };
+      return;
+    }
+    if (b.dataset.s) {
+      await api('atualizarStatus', Object.assign({ status: b.dataset.s, motivo: aberto ? aberto.querySelector('.mot').value : '' }, ref));
+      aviso('Registrado.'); vAgenda();
+    }
+  };
+  desenhar();
+}
+
+// ---------- Pacientes (lista + ficha) ----------
+async function vPacientes(pr) {
+  main.innerHTML = `<div class="bar"><input id="bp" placeholder="Buscar por nome ou prontuário…" aria-label="Buscar paciente" style="flex:1;max-width:420px"></div>
+    <div id="pac"></div>
+    <div class="tw"><table><thead><tr><th>Prontuário</th><th>Nome</th><th>Responsável</th><th>Telefone</th><th>Status</th></tr></thead>
+    <tbody id="tp"><tr><td colspan="5">Carregando…</td></tr></tbody></table></div>
+    <p class="mut">Clique num paciente para abrir a ficha. Para cadastrar ou inativar, use a aba Pacientes da planilha.</p>`;
+  if (pr) fichaPaciente(pr);
+  const l = await api('listaPacientes');
+  $('#tp').innerHTML = l.map(p => `<tr class="lk" data-pr="${esc(p.pront)}"><td>${esc(p.pront)}</td><td>${esc(p.nome)}</td><td>${esc(p.responsavel)}</td>
+    <td>${esc(p.telefone)}</td><td class="${p.status === 'Ativo' ? 'ok' : 'er'}">${esc(p.status)}</td></tr>`).join('') || '<tr><td colspan="5">Nenhum paciente cadastrado.</td></tr>';
+  $('#bp').oninput = e => {
+    const q = e.target.value.trim().toLowerCase();
+    $('#tp').querySelectorAll('tr').forEach(tr => { tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+  };
+  $('#tp').onclick = e => { const tr = e.target.closest('[data-pr]'); if (tr) { fichaPaciente(tr.dataset.pr); scrollTo(0, 0); } };
+}
+
+// ---------- Profissionais ----------
+function vProfs() {
+  const tipo = p => p.tipo === 'Horário' ? 'Horário fixo · ' + p.dur + ' min' : p.tipo === 'Ordem de chegada' ? 'Ordem de chegada · até ' + (p.max || '∞') + '/dia' : 'Livre (sem agenda)';
+  main.innerHTML = `<div class="tw"><table><thead><tr><th>Nome</th><th>Especialidade</th><th>Tipo de agenda</th><th>Dias e horários</th><th>Sala</th></tr></thead><tbody>
+    ${D.profs.map(p => `<tr><td>${esc(p.nome)}</td><td>${esc(p.esp)}</td><td>${tipo(p)}</td>
+      <td>${p.horarios.map(h => DIAS_CURTO[h.dia] + ' ' + h.turnos.map(t => esc(t.inicio + '–' + t.fim)).join(', ')).join('<br>') || '—'}</td>
+      <td>${[...new Set([].concat(...p.horarios.map(h => h.turnos.map(t => t.sala))).filter(Boolean))].map(esc).join(', ')}</td></tr>`).join('')
+      || '<tr><td colspan="5">Nenhum profissional ativo.</td></tr>'}</tbody></table></div>
+    <p class="mut">Para incluir ou mudar profissionais e horários, use as abas Profissionais e Expediente da planilha.</p>`;
+}
+
+// ---------- Navegação ----------
+const VIEWS = {
+  'Agenda': [vAgenda, 'RECEPÇÃO', 'Agenda de atendimentos', '◷'], 'Agendar': [vAgendar, 'RECEPÇÃO', 'Agendar', '✚'],
+  'Pacientes': [vPacientes, 'CADASTRO', 'Pacientes', '♧'], 'Fila interna': [vFila, 'RECEPÇÃO', 'Fila interna', '☷'],
+  'Painel': [vPainel, 'UNIDADE', 'Painel', '▦'], 'Profissionais': [vProfs, 'EQUIPE', 'Profissionais', '♙'],
+  'Indicadores': [vIndicadores, 'DIREÇÃO', 'Visão da unidade', '▥'],
+};
+function ir(nome, arg) {
+  if (nome === 'Paciente') nome = 'Pacientes'; // nome usado pelas telas antigas
+  const v = VIEWS[nome];
+  document.querySelectorAll('#menu-eq button').forEach(b => b.classList.toggle('on', b.dataset.v === nome));
+  $('#areaeq').textContent = 'ESPAÇO TEA / ' + v[1]; $('#titulo').textContent = v[2];
+  scrollTo(0, 0);
+  v[0](arg);
+}
+$('#menu-eq').onclick = e => { const b = e.target.closest('button'); if (b) ir(b.dataset.v); };
+
+// ---------- Site ↔ área da equipe ----------
+function mostrarEquipe(on) {
+  $('#equipe').classList.toggle('on', on);
+  document.querySelectorAll('#institutional, footer').forEach(el => { el.style.display = on ? 'none' : ''; });
+  $('#entrar').style.visibility = on ? 'hidden' : '';
+}
+// Abre a janela do código (também chamada pela api() quando o código não vale mais).
+function entrar(erro) {
+  mostrarEquipe(false);
+  $('#lerro').textContent = erro || '';
+  $('#login').classList.add('on'); $('#cod').value = ''; $('#cod').focus();
+}
+async function iniciar() {
+  if (!codigo) return entrar();
+  try { D = await api('inicio'); } catch (e) { return; } // a api() já mostrou o erro
+  guarda.set(codigo);
+  $('#login').classList.remove('on');
+  $('#quem').textContent = D.usuario + (D.direcao ? ' · Direção' : ' · Recepção');
+  const repetidos = {};
+  D.pacientes.forEach(p => { repetidos[p.nome] = (repetidos[p.nome] || 0) + 1; });
+  D.pacientes.forEach(p => { p.rot = repetidos[p.nome] > 1 ? p.nome + ' (' + p.pront + ')' : p.nome; });
+  $('#dl-pac').innerHTML = D.pacientes.map(p => '<option value="' + esc(p.rot) + '"></option>').join('');
+  $('#menu-eq').innerHTML = Object.keys(VIEWS).filter(n => n !== 'Indicadores' || D.direcao)
+    .map(n => `<button data-v="${n}"><span class="ic" aria-hidden="true">${VIEWS[n][3]}</span>${n}</button>`).join('');
+  mostrarEquipe(true);
+  ir('Agenda');
+}
+$('#entrar').onclick = () => D.usuario ? mostrarEquipe(true) : entrar();
+$('#lgx').onclick = () => $('#login').classList.remove('on');
+// Enquanto confere o código, trava o botão: cada clique a mais contaria como outra tentativa (5 erros bloqueiam o aparelho).
+$('#login form').onsubmit = async e => {
+  e.preventDefault();
+  const b = $('#login .btn:not(.ghost)'), v = $('#cod').value.trim();
+  if (b.disabled) return;
+  if (!v) return $('#cod').focus();
+  b.disabled = $('#cod').disabled = true; b.textContent = 'Verificando…'; $('#lerro').textContent = '';
+  codigo = v;
+  await iniciar();
+  b.disabled = $('#cod').disabled = false; b.textContent = 'Entrar';
+  if ($('#login').classList.contains('on')) $('#cod').focus();
+};
+$('#voltar').onclick = () => { mostrarEquipe(false); scrollTo(0, 0); };
+$('#sair').onclick = () => { codigo = ''; guarda.set(''); D = {}; mostrarEquipe(false); scrollTo(0, 0); };
+document.querySelectorAll('header nav a, header .brand').forEach(a => a.addEventListener('click', () => { if ($('#equipe').classList.contains('on')) mostrarEquipe(false); }));
+if (codigo) iniciar();
+</script>
